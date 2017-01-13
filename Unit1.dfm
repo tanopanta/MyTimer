@@ -124,7 +124,7 @@ object Form1: TForm1
     OnClick = Button3Click
   end
   object UpDown1: TUpDown
-    Left = 112
+    Left = 114
     Top = 131
     Width = 17
     Height = 25

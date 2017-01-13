@@ -107,6 +107,19 @@ object Form2: TForm2
     Font.Style = []
     ParentFont = False
   end
+  object Label8: TLabel
+    Left = 8
+    Top = 56
+    Width = 74
+    Height = 17
+    Caption = #36890#30693#12513#12483#12475#12540#12472
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = 16056319
+    Font.Height = -13
+    Font.Name = 'Yu Gothic UI'
+    Font.Style = []
+    ParentFont = False
+  end
   object Edit1: TEdit
     Left = 87
     Top = 24
@@ -203,5 +216,21 @@ object Form2: TForm2
     Font.Style = []
     ParentFont = False
     TabOrder = 6
+  end
+  object EditNotifyMessage: TEdit
+    Left = 87
+    Top = 56
+    Width = 146
+    Height = 21
+    Color = clCream
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = 2962483
+    Font.Height = -11
+    Font.Name = 'Yu Gothic UI'
+    Font.Style = []
+    MaxLength = 100
+    ParentFont = False
+    TabOrder = 7
+    Text = #26178#38291#12391#12377
   end
 end

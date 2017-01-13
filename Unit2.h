@@ -25,6 +25,8 @@ __published:	// IDE で管理されるコンポーネント
 	TLabel *Label5;
 	TLabel *Label6;
 	TLabel *Label7;
+	TEdit *EditNotifyMessage;
+	TLabel *Label8;
 	void __fastcall Button1Click(TObject *Sender);
 	void __fastcall Button2Click(TObject *Sender);
 	void __fastcall FormShow(TObject *Sender);

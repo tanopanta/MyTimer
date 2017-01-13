@@ -25,6 +25,7 @@ void __fastcall TForm2::Button1Click(TObject *Sender)
 	ini = new TIniFile(ChangeFileExt(Application->ExeName, ".INI" ));
 	ini->WriteInteger("Form", "DefaultMinute", StrToInt(Edit1->Text));
 	ini->WriteInteger("Form", "DefaultSecond", StrToInt(Edit2->Text));
+	ini->WriteString("Form","NotifyMessage",EditNotifyMessage->Text);
 	ini->WriteBool("Form","NotificationSound",CheckBox1->Checked);
 	//ini->WriteBool("Form","DoubleBuffering",CheckBox2->Checked);
 	ini->WriteBool("Form","UseActionCenter",CheckBox3->Checked);
@@ -61,6 +62,7 @@ void __fastcall TForm2::LoadSettings()
 	ini = new TIniFile( ChangeFileExt( Application->ExeName, ".INI" ) );
 	Edit1->Text = ini->ReadInteger("Form", "DefaultMinute", 30);
 	Edit2->Text = ini->ReadInteger("Form", "DefaultSecond", 0);
+	EditNotifyMessage->Text = ini->ReadString("Form","NotifyMessage","ŽžŠÔ‚Å‚·");
 	CheckBox1->Checked = ini->ReadBool("Form","NotificationSound",True);
 	//CheckBox2->Checked = ini->ReadBool("Form","DoubleBuffering",False);
 	CheckBox3->Checked = ini->ReadBool("Form","UseActionCenter",False);
