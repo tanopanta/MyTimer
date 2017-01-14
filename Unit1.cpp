@@ -94,11 +94,14 @@ void __fastcall TForm1::EndProcessing()
 
 	if(Form2->CheckBox3->Checked){
 		TNotification *MyNotification = NotificationCenter1->CreateNotification();
-		MyNotification->Name = "mytimer";
-		MyNotification->AlertBody = message;
-		MyNotification->Title = "タイマー";
-		NotificationCenter1->PresentNotification(MyNotification);
-		delete MyNotification;
+		try{
+			MyNotification->Name = "mytimer";
+			MyNotification->AlertBody = message;
+			MyNotification->Title = "タイマー";
+			NotificationCenter1->PresentNotification(MyNotification);
+		}__finally{
+			delete MyNotification;
+		}
 		if(count < -3){
 			SetWindowPos(Form1->Handle,HWND_TOPMOST,0,0,0,0,SWP_NOMOVE | SWP_NOSIZE);
 			Application->MessageBoxW(message.c_str(),L"タイマー",MB_OK);
@@ -133,15 +136,18 @@ void __fastcall TForm1::Button2Click(TObject *Sender)
 void __fastcall TForm1::FormShow(TObject *Sender)
 {
 	TIniFile *ini;
-	ini = new TIniFile( ChangeFileExt( Application->ExeName, ".INI" ) );
-	Edit1->Text = ini->ReadInteger("Form", "DefaultMinute", 30);
-	Edit2->Text = ini->ReadInteger("Form", "DefaultSecond", 0);
-	Form2->EditNotifyMessage->Text = ini->ReadString("Form","NotifyMessage","時間です");
-	Form2->CheckBox1->Checked = ini->ReadBool("Form","NotificationSound",True);
-	//Form2->CheckBox2->Checked = ini->ReadBool("Form","DoubleBuffering",False);
-	Form2->CheckBox3->Checked = ini->ReadBool("Form","UseActionCenter",False);
-	Form2->CheckBox4->Checked = ini->ReadBool("Form","DisplayTopMost",False);
-	delete ini;
+	try{
+		ini = new TIniFile( ChangeFileExt( Application->ExeName, ".INI" ) );
+		Edit1->Text = ini->ReadInteger("Form", "DefaultMinute", 30);
+		Edit2->Text = ini->ReadInteger("Form", "DefaultSecond", 0);
+		Form2->EditNotifyMessage->Text = ini->ReadString("Form","NotifyMessage","時間です");
+		Form2->CheckBox1->Checked = ini->ReadBool("Form","NotificationSound",True);
+		//Form2->CheckBox2->Checked = ini->ReadBool("Form","DoubleBuffering",False);
+		Form2->CheckBox3->Checked = ini->ReadBool("Form","UseActionCenter",False);
+		Form2->CheckBox4->Checked = ini->ReadBool("Form","DisplayTopMost",False);
+	}__finally{
+		delete ini;
+	}
 	if(Form2->CheckBox4->Checked){
 		SetWindowPos(Handle, HWND_TOPMOST, 0, 0, 0, 0,SWP_NOMOVE | SWP_NOSIZE | SWP_NOREDRAW);
 	}
