@@ -103,6 +103,7 @@ void __fastcall TForm1::EndProcessing()
 			delete MyNotification;
 		}
 		if(count < -3){
+			ShowWindow(Form1->Handle,SW_RESTORE);
 			SetWindowPos(Form1->Handle,HWND_TOPMOST,0,0,0,0,SWP_NOMOVE | SWP_NOSIZE);
 			Application->MessageBoxW(message.c_str(),L"タイマー",MB_OK);
 			SetWindowPos(Form1->Handle,HWND_NOTOPMOST,0,0,0,0,SWP_NOMOVE | SWP_NOSIZE);
@@ -114,6 +115,7 @@ void __fastcall TForm1::EndProcessing()
 		if(Form2->CheckBox4->Checked){
 			Application->MessageBox(message.c_str(),L"タイマー",MB_OK);
 		}else{
+			ShowWindow(Form1->Handle,SW_RESTORE);
 			SetWindowPos(Form1->Handle,HWND_TOPMOST,0,0,0,0,SWP_NOMOVE | SWP_NOSIZE);
 			Application->MessageBox(message.c_str(),L"タイマー",MB_OK);
 			SetWindowPos(Form1->Handle,HWND_NOTOPMOST,0,0,0,0,SWP_NOMOVE | SWP_NOSIZE);
