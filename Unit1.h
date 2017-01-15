@@ -27,11 +27,26 @@ __published:	// IDE で管理されるコンポーネント
 	TUpDown *UpDown2;
 	TButton *Button2;
 	TNotificationCenter *NotificationCenter1;
+	TPopupMenu *PopupMenu1;
+	TMenuItem *SetDefault;
+	TMenuItem *N1;
+	TMenuItem *Set1;
+	TMenuItem *Set2;
+	TMenuItem *Set3;
+	TMenuItem *Set4;
+	TMenuItem *Set5;
 	void __fastcall Button1Click(TObject *Sender);
 	void __fastcall Timer1Timer(TObject *Sender);
 	void __fastcall Button3Click(TObject *Sender);
 	void __fastcall Button2Click(TObject *Sender);
 	void __fastcall FormShow(TObject *Sender);
+	void __fastcall SetDefaultClick(TObject *Sender);
+	void __fastcall Set1Click(TObject *Sender);
+	void __fastcall Set2Click(TObject *Sender);
+	void __fastcall Set3Click(TObject *Sender);
+	void __fastcall Set4Click(TObject *Sender);
+	void __fastcall Set5Click(TObject *Sender);
+	void __fastcall FormClose(TObject *Sender, TCloseAction &Action);
 
 
 
@@ -39,7 +54,9 @@ private:	// ユーザー宣言
 
 public:		// ユーザー宣言
 	__fastcall TForm1(TComponent* Owner);
-    void __fastcall EndProcessing();
+	void __fastcall EndProcessing();
+	void __fastcall HistorySetting(int num);
+    void __fastcall SetClick(int num);
 };
 //---------------------------------------------------------------------------
 extern PACKAGE TForm1 *Form1;
