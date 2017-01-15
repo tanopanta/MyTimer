@@ -13,6 +13,8 @@ object Form1: TForm1
   Font.Name = 'Yu Gothic UI'
   Font.Style = []
   OldCreateOrder = False
+  PopupMenu = PopupMenu1
+  OnClose = FormClose
   OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 17
@@ -86,6 +88,7 @@ object Form1: TForm1
     MaxLength = 4
     NumbersOnly = True
     ParentFont = False
+    PopupMenu = PopupMenu1
     TabOrder = 1
     Text = '0'
   end
@@ -105,6 +108,7 @@ object Form1: TForm1
     MaxLength = 2
     NumbersOnly = True
     ParentFont = False
+    PopupMenu = PopupMenu1
     TabOrder = 2
     Text = '0'
   end
@@ -166,5 +170,36 @@ object Form1: TForm1
   object NotificationCenter1: TNotificationCenter
     Left = 144
     Top = 24
+  end
+  object PopupMenu1: TPopupMenu
+    Left = 64
+    Top = 80
+    object SetDefault: TMenuItem
+      Caption = #36215#21205#26178#12398#20516#12395#12475#12483#12488
+      OnClick = SetDefaultClick
+    end
+    object N1: TMenuItem
+      Caption = '-'
+    end
+    object Set1: TMenuItem
+      Caption = '3'#20998
+      OnClick = Set1Click
+    end
+    object Set2: TMenuItem
+      Caption = '3'#20998
+      OnClick = Set2Click
+    end
+    object Set3: TMenuItem
+      Caption = '3'#20998
+      OnClick = Set3Click
+    end
+    object Set4: TMenuItem
+      Caption = '3'#20998
+      OnClick = Set4Click
+    end
+    object Set5: TMenuItem
+      Caption = '3'#20998
+      OnClick = Set5Click
+    end
   end
 end

@@ -7,6 +7,8 @@
 #include "Unit1.h"
 #include <IniFiles.hpp>
 #include "Unit2.h"
+
+#define HISTORY_SIZE 5
 //---------------------------------------------------------------------------
 #pragma package(smart_init)
 #pragma resource "*.dfm"
@@ -17,6 +19,8 @@ int count = 0;
 bool isTochu = false;
 time_t startTime;
 int endTime;
+
+int historyTime[HISTORY_SIZE] = {180,180,180,180,180};
 //---------------------------------------------------------------------------
 __fastcall TForm1::TForm1(TComponent* Owner)
 	: TForm(Owner)
@@ -41,6 +45,9 @@ void __fastcall TForm1::Button1Click(TObject *Sender)
 				return;
 			}
 			count = StrToInt(Edit1->Text) * 60 +  StrToInt(Edit2->Text);
+
+			HistorySetting(count);
+
 			isTochu = true;
 			endTime = count;
 		}
@@ -53,15 +60,47 @@ void __fastcall TForm1::Button1Click(TObject *Sender)
 }
 //---------------------------------------------------------------------------
 
+void __fastcall TForm1::HistorySetting(int num)
+{
+	bool isExist = false;
+	int tmp,i;
+	UnicodeString str;
+	for(i = 0;i < HISTORY_SIZE;i++){
+		if(historyTime[i] == num){
+			isExist = true;
+			break;
+		}
+	}
+	if(isExist){
+		if(i == 0){
+			return;
+		}
+		tmp = historyTime[i];
+		for(int j = i;j  > 0;j--){
+			historyTime[j] = historyTime[j - 1];
+		}
+		historyTime[0] = tmp;
+	}else{
+		historyTime[4] = historyTime[3];
+		historyTime[3] = historyTime[2];
+		historyTime[2] = historyTime[1];
+		historyTime[1] = historyTime[0];
+		historyTime[0] = count;
+	}
+	for(int i = 0;i < HISTORY_SIZE;i++){
+		str = IntToStr(historyTime[i] / 60) + "•ª" + IntToStr(historyTime[i] % 60) + "•b";
+		PopupMenu1->Items->Items[i + 2]->Caption = str;
+	}
+}
 
-
+//--------------------
 void __fastcall TForm1::Timer1Timer(TObject *Sender)
 {
 	count = endTime - difftime(time(NULL),startTime);
 	Label1->Caption = AnsiString().sprintf("%02d:%02d:%02d",count / 3600,(count - (count / 3600) * 3600)/ 60,count % 60);
 	if(count <= 0){
 		if(count > -3){
-            //”•b‚¾‚Á‚½‚ç0
+			//”•b‚¾‚Á‚½‚ç0
 			Label1->Caption = "00:00:00";
 		}
 		EndProcessing();
@@ -124,6 +163,7 @@ void __fastcall TForm1::EndProcessing()
 	return;
 }
 
+//---------------------------------------------------------------------------
 
 
 void __fastcall TForm1::Button2Click(TObject *Sender)
@@ -138,24 +178,99 @@ void __fastcall TForm1::Button2Click(TObject *Sender)
 void __fastcall TForm1::FormShow(TObject *Sender)
 {
 	TIniFile *ini;
+    UnicodeString str;
 	try{
-		ini = new TIniFile( ChangeFileExt( Application->ExeName, ".INI" ) );
+		ini = new TIniFile( ChangeFileExt( Application->ExeName, ".ini" ) );
 		Edit1->Text = ini->ReadInteger("Form", "DefaultMinute", 30);
+		Form2->Edit1->Text = Edit1->Text;
 		Edit2->Text = ini->ReadInteger("Form", "DefaultSecond", 0);
+		Form2->Edit2->Text = Edit2->Text;
 		Form2->EditNotifyMessage->Text = ini->ReadString("Form","NotifyMessage","ŽžŠÔ‚Å‚·");
 		Form2->CheckBox1->Checked = ini->ReadBool("Form","NotificationSound",True);
 		//Form2->CheckBox2->Checked = ini->ReadBool("Form","DoubleBuffering",False);
 		Form2->CheckBox3->Checked = ini->ReadBool("Form","UseActionCenter",False);
 		Form2->CheckBox4->Checked = ini->ReadBool("Form","DisplayTopMost",False);
+
+		for(int i = 0;i < HISTORY_SIZE;i++){
+		   historyTime[i] = ini->ReadInteger("History", "His" + IntToStr(i),180);
+
+		}
 	}__finally{
 		delete ini;
 	}
+	//ˆÈ‰º•ÏXˆ—
 	if(Form2->CheckBox4->Checked){
 		SetWindowPos(Handle, HWND_TOPMOST, 0, 0, 0, 0,SWP_NOMOVE | SWP_NOSIZE | SWP_NOREDRAW);
 	}
+	for(int i = 0;i < HISTORY_SIZE;i++){
+		str = IntToStr(historyTime[i] / 60) + "•ª" + IntToStr(historyTime[i] % 60) + "•b";
+		PopupMenu1->Items->Items[i + 2]->Caption = str;
+	}
+	str = Form2->Edit1->Text + "•ª" + Form2->Edit2->Text + "•b";
+	PopupMenu1->Items->Items[0]->Caption = str;
 	//Form1->DoubleBuffered = Form2->CheckBox2->Checked;
 }
 //---------------------------------------------------------------------------
 
 
+
+void __fastcall TForm1::SetDefaultClick(TObject *Sender)
+{
+	Edit1->Text = Form2->Edit1->Text;
+	Edit2->Text = Form2->Edit2->Text;
+}
+//---------------------------------------------------------------------------
+
+
+void __fastcall TForm1::Set1Click(TObject *Sender)
+{
+	SetClick(0);
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::Set2Click(TObject *Sender)
+{
+	SetClick(1);
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::Set3Click(TObject *Sender)
+{
+	SetClick(2);
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::Set4Click(TObject *Sender)
+{
+	SetClick(3);
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::Set5Click(TObject *Sender)
+{
+	SetClick(4);
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::SetClick(int num)
+{
+	Edit1->Text = historyTime[num] / 60;
+	Edit2->Text = historyTime[num] % 60;
+}
+//---------------------------------------------------------------------------
+
+
+void __fastcall TForm1::FormClose(TObject *Sender, TCloseAction &Action)
+{
+	TIniFile *ini;
+	try{
+		ini = new TIniFile( ChangeFileExt( Application->ExeName, ".ini" ) );
+		for(int i = 0;i < HISTORY_SIZE;i++){
+		   ini->WriteInteger("History", "His" + IntToStr(i), historyTime[i]);
+		}
+	}__finally{
+		delete ini;
+	}
+}
+//---------------------------------------------------------------------------
 

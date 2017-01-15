@@ -21,9 +21,14 @@ __fastcall TForm2::TForm2(TComponent* Owner)
 //---------------------------------------------------------------------------
 void __fastcall TForm2::Button1Click(TObject *Sender)
 {
+	if(EditNotifyMessage->Text.Length() == 0){
+		EditNotifyMessage->Text = "-";
+	}
+
+
 	TIniFile *ini;
 	try{
-		ini = new TIniFile(ChangeFileExt(Application->ExeName, ".INI" ));
+		ini = new TIniFile(ChangeFileExt(Application->ExeName, ".ini" ));
 		ini->WriteInteger("Form", "DefaultMinute", StrToInt(Edit1->Text));
 		ini->WriteInteger("Form", "DefaultSecond", StrToInt(Edit2->Text));
 		ini->WriteString("Form","NotifyMessage",EditNotifyMessage->Text);
@@ -45,6 +50,9 @@ void __fastcall TForm2::Button1Click(TObject *Sender)
 		}
 	}
 
+	Form1->PopupMenu1->Items->Items[0]->Caption = Edit1->Text + "•ª" + Edit2->Text + "•b";
+
+
 	Form2->Close();
 }
 //---------------------------------------------------------------------------
@@ -64,7 +72,7 @@ void __fastcall TForm2::LoadSettings()
 {
 	TIniFile *ini;
 	try{
-		ini = new TIniFile( ChangeFileExt( Application->ExeName, ".INI" ) );
+		ini = new TIniFile( ChangeFileExt( Application->ExeName, ".ini" ) );
 		Edit1->Text = ini->ReadInteger("Form", "DefaultMinute", 30);
 		Edit2->Text = ini->ReadInteger("Form", "DefaultSecond", 0);
 		EditNotifyMessage->Text = ini->ReadString("Form","NotifyMessage","ŠÔ‚Å‚·");
