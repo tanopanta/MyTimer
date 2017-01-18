@@ -47,10 +47,6 @@ void __fastcall TForm1::Button1Click(TObject *Sender)
 			count = StrToInt(Edit1->Text) * 60 +  StrToInt(Edit2->Text);
 
 			HistorySetting(count);
-<<<<<<< HEAD
-=======
-
->>>>>>> 3235aa40e6d1b1aa28120a49933b25fdb26bb62f
 			isTochu = true;
 			endTime = count;
 		}
@@ -209,11 +205,8 @@ void __fastcall TForm1::FormShow(TObject *Sender)
 		str = IntToStr(historyTime[i] / 60) + "•ª" + IntToStr(historyTime[i] % 60) + "•b";
 		PopupMenu1->Items->Items[i + 2]->Caption = str;
 	}
-<<<<<<< HEAD
 	str = Form2->Edit1->Text + "•ª" + Form2->Edit2->Text + "•b";
 	PopupMenu1->Items->Items[0]->Caption = str;
-=======
->>>>>>> 3235aa40e6d1b1aa28120a49933b25fdb26bb62f
 	//Form1->DoubleBuffered = Form2->CheckBox2->Checked;
 }
 //---------------------------------------------------------------------------
