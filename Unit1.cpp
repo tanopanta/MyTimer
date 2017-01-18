@@ -47,7 +47,6 @@ void __fastcall TForm1::Button1Click(TObject *Sender)
 			count = StrToInt(Edit1->Text) * 60 +  StrToInt(Edit2->Text);
 
 			HistorySetting(count);
-
 			isTochu = true;
 			endTime = count;
 		}
@@ -130,7 +129,6 @@ void __fastcall TForm1::EndProcessing()
 	Form1->Timer1->Enabled = false;
 	Form1->Button1->Caption = "ReStart";
 
-
 	if(Form2->CheckBox3->Checked){
 		TNotification *MyNotification = NotificationCenter1->CreateNotification();
 		try{
@@ -168,10 +166,11 @@ void __fastcall TForm1::EndProcessing()
 
 void __fastcall TForm1::Button2Click(TObject *Sender)
 {
-    //ê›íËâÊñ ÇÃï\é¶
+	//ê›íËâÊñ ÇÃï\é¶
 	Form2->Show();
 	Form2->Left = Form1->Left + 50;
 	Form2->Top = Form1->Top + 50;
+
 }
 //---------------------------------------------------------------------------
 //ê›íËÇÃì«Ç›çûÇ›
