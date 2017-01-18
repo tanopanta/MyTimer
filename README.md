@@ -4,7 +4,7 @@
 
 ## ダウンロード
 以下のリンクから入手できます。  
-https://github.com/tanopanta/MyTimer/releases/download/v1.0.0/MyTimer.zip
+https://github.com/tanopanta/MyTimer/releases/download/v1.1.0/MyTimer.zip
 
 ## 動作環境
 Windows
