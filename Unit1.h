@@ -11,6 +11,8 @@
 #include <Vcl.Menus.hpp>
 #include <System.Notification.hpp>
 #include <Vcl.ComCtrls.hpp>
+#include <System.Actions.hpp>
+#include <Vcl.ActnList.hpp>
 //---------------------------------------------------------------------------
 class TForm1 : public TForm
 {
@@ -35,6 +37,9 @@ __published:	// IDE で管理されるコンポーネント
 	TMenuItem *Set3;
 	TMenuItem *Set4;
 	TMenuItem *Set5;
+	TActionList *ActionList1;
+	TAction *ActionStartStop;
+	TAction *ActionReset;
 	void __fastcall Button1Click(TObject *Sender);
 	void __fastcall Timer1Timer(TObject *Sender);
 	void __fastcall Button3Click(TObject *Sender);
@@ -47,6 +52,8 @@ __published:	// IDE で管理されるコンポーネント
 	void __fastcall Set4Click(TObject *Sender);
 	void __fastcall Set5Click(TObject *Sender);
 	void __fastcall FormClose(TObject *Sender, TCloseAction &Action);
+	void __fastcall ActionStartStopExecute(TObject *Sender);
+	void __fastcall ActionResetExecute(TObject *Sender);
 
 
 

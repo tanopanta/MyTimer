@@ -62,7 +62,7 @@ object Form1: TForm1
     Top = 162
     Width = 85
     Height = 25
-    Caption = 'Start'
+    Caption = 'START'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = 2962483
     Font.Height = -16
@@ -117,7 +117,7 @@ object Form1: TForm1
     Top = 162
     Width = 75
     Height = 25
-    Caption = 'Reset'
+    Caption = 'RESET'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = 2962483
     Font.Height = -16
@@ -200,6 +200,20 @@ object Form1: TForm1
     object Set5: TMenuItem
       Caption = '3'#20998
       OnClick = Set5Click
+    end
+  end
+  object ActionList1: TActionList
+    Left = 240
+    Top = 88
+    object ActionStartStop: TAction
+      Caption = 'ActionStartStop'
+      ShortCut = 49235
+      OnExecute = ActionStartStopExecute
+    end
+    object ActionReset: TAction
+      Caption = 'ActionReset'
+      ShortCut = 49234
+      OnExecute = ActionResetExecute
     end
   end
 end

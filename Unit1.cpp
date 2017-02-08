@@ -33,7 +33,7 @@ void __fastcall TForm1::Button1Click(TObject *Sender)
 {
 	if(isStart){
 		isStart = false;
-		Button1->Caption = "Start";
+		Button1->Caption = "START";
 		Timer1->Enabled = false;
 		endTime -= difftime(time(NULL),startTime);
 	}else{
@@ -52,7 +52,7 @@ void __fastcall TForm1::Button1Click(TObject *Sender)
 		}
 		startTime = time(NULL);
 		isStart = true;
-		Button1->Caption = "Stop";
+		Button1->Caption = "STOP";
 		Label1->Caption = AnsiString().sprintf("%02d:%02d:%02d",count / 3600,(count - (count / 3600) * 3600)/ 60,count % 60);
 		Timer1->Enabled = true;
 	}
@@ -118,7 +118,7 @@ void __fastcall TForm1::Button3Click(TObject *Sender)
 	}else{
 		Label1->Caption = AnsiString().sprintf("%02d:%02d:%02d",StrToInt(Edit1->Text) / 60,StrToInt(Edit1->Text) % 60,StrToInt(Edit2->Text));
 	}
-	Button1->Caption = "Start";
+	Button1->Caption = "START";
 }
 //---------------------------------------------------------------------------
 void __fastcall TForm1::EndProcessing()
@@ -127,7 +127,7 @@ void __fastcall TForm1::EndProcessing()
 	isStart = false;
 	isTochu = false;
 	Form1->Timer1->Enabled = false;
-	Form1->Button1->Caption = "ReStart";
+	Form1->Button1->Caption = "RESTART";
 
 	if(Form2->CheckBox3->Checked){
 		TNotification *MyNotification = NotificationCenter1->CreateNotification();
@@ -266,4 +266,17 @@ void __fastcall TForm1::FormClose(TObject *Sender, TCloseAction &Action)
 	}
 }
 //---------------------------------------------------------------------------
+
+void __fastcall TForm1::ActionStartStopExecute(TObject *Sender)
+{
+	Button1Click(Sender);
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::ActionResetExecute(TObject *Sender)
+{
+	Button3Click(Sender);
+}
+//---------------------------------------------------------------------------
+
 
