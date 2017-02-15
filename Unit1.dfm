@@ -91,9 +91,10 @@ object Form1: TForm1
     PopupMenu = PopupMenu1
     TabOrder = 1
     Text = '0'
+    OnChange = Edit1Change
   end
   object Edit2: TEdit
-    Left = 165
+    Left = 159
     Top = 131
     Width = 57
     Height = 25
@@ -111,6 +112,7 @@ object Form1: TForm1
     PopupMenu = PopupMenu1
     TabOrder = 2
     Text = '0'
+    OnChange = Edit2Change
   end
   object Button3: TButton
     Left = 222
@@ -138,7 +140,7 @@ object Form1: TForm1
     Thousands = False
   end
   object UpDown2: TUpDown
-    Left = 222
+    Left = 216
     Top = 131
     Width = 16
     Height = 25

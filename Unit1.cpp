@@ -113,7 +113,7 @@ void __fastcall TForm1::Button3Click(TObject *Sender)
 	isStart = false;
 	Timer1->Enabled = false;
 	if(Edit1->Text == EmptyStr || Edit2->Text == EmptyStr){
-        Edit1->Text = "0";
+		Edit1->Text = "0";
 		Edit2->Text = "0";
 	}else{
 		Label1->Caption = AnsiString().sprintf("%02d:%02d:%02d",StrToInt(Edit1->Text) / 60,StrToInt(Edit1->Text) % 60,StrToInt(Edit2->Text));
@@ -195,12 +195,15 @@ void __fastcall TForm1::FormShow(TObject *Sender)
 	if(Form2->CheckBox4->Checked){
 		SetWindowPos(Handle, HWND_TOPMOST, 0, 0, 0, 0,SWP_NOMOVE | SWP_NOSIZE | SWP_NOREDRAW);
 	}
+
 	for(int i = 0;i < HISTORY_SIZE;i++){
 		str = IntToStr(historyTime[i] / 60) + "•ª" + IntToStr(historyTime[i] % 60) + "•b";
 		PopupMenu1->Items->Items[i + 2]->Caption = str;
 	}
 	str = Form2->Edit1->Text + "•ª" + Form2->Edit2->Text + "•b";
 	PopupMenu1->Items->Items[0]->Caption = str;
+
+	Label1->Caption = AnsiString().sprintf("%02d:%02d:%02d",StrToInt(Edit1->Text) / 60,StrToInt(Edit1->Text) % 60 + StrToInt(Edit2->Text) / 60,StrToInt(Edit2->Text) % 60);
 	//Form1->DoubleBuffered = Form2->CheckBox2->Checked;
 }
 //---------------------------------------------------------------------------
@@ -276,6 +279,31 @@ void __fastcall TForm1::ActionStartStopExecute(TObject *Sender)
 void __fastcall TForm1::ActionResetExecute(TObject *Sender)
 {
 	Button3Click(Sender);
+}
+//---------------------------------------------------------------------------
+
+
+void __fastcall TForm1::Edit1Change(TObject *Sender)
+{
+	 EditChange();
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::Edit2Change(TObject *Sender)
+{
+	EditChange();
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::EditChange()
+{
+	if(!isTochu){
+		if(Edit1->Text == EmptyStr || Edit2->Text == EmptyStr){
+			//
+		}else{
+			Label1->Caption = AnsiString().sprintf("%02d:%02d:%02d",StrToInt(Edit1->Text) / 60,StrToInt(Edit1->Text) % 60 + StrToInt(Edit2->Text) / 60,StrToInt(Edit2->Text) % 60);
+		}
+	}
 }
 //---------------------------------------------------------------------------
 

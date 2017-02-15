@@ -13,6 +13,7 @@
 #include <Vcl.ComCtrls.hpp>
 #include <System.Actions.hpp>
 #include <Vcl.ActnList.hpp>
+#include <Vcl.StdActns.hpp>
 //---------------------------------------------------------------------------
 class TForm1 : public TForm
 {
@@ -54,6 +55,8 @@ __published:	// IDE で管理されるコンポーネント
 	void __fastcall FormClose(TObject *Sender, TCloseAction &Action);
 	void __fastcall ActionStartStopExecute(TObject *Sender);
 	void __fastcall ActionResetExecute(TObject *Sender);
+	void __fastcall Edit1Change(TObject *Sender);
+	void __fastcall Edit2Change(TObject *Sender);
 
 
 
@@ -63,7 +66,8 @@ public:		// ユーザー宣言
 	__fastcall TForm1(TComponent* Owner);
 	void __fastcall EndProcessing();
 	void __fastcall HistorySetting(int num);
-    void __fastcall SetClick(int num);
+	void __fastcall SetClick(int num);
+    void __fastcall EditChange();
 };
 //---------------------------------------------------------------------------
 extern PACKAGE TForm1 *Form1;
