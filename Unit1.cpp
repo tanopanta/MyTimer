@@ -88,7 +88,8 @@ void __fastcall TForm1::HistorySetting(int num)
 	}
 	for(int i = 0;i < HISTORY_SIZE;i++){
 		str = IntToStr(historyTime[i] / 60) + "•ª" + IntToStr(historyTime[i] % 60) + "•b";
-		PopupMenu1->Items->Items[i + 2]->Caption = str;
+		PopupMenu1->Items->Items[1]->Items[i]->Caption = str;
+
 	}
 }
 
@@ -198,7 +199,7 @@ void __fastcall TForm1::FormShow(TObject *Sender)
 
 	for(int i = 0;i < HISTORY_SIZE;i++){
 		str = IntToStr(historyTime[i] / 60) + "•ª" + IntToStr(historyTime[i] % 60) + "•b";
-		PopupMenu1->Items->Items[i + 2]->Caption = str;
+		PopupMenu1->Items->Items[1]->Items[i]->Caption = str;
 	}
 	str = Form2->Edit1->Text + "•ª" + Form2->Edit2->Text + "•b";
 	PopupMenu1->Items->Items[0]->Caption = str;
@@ -307,4 +308,24 @@ void __fastcall TForm1::EditChange()
 }
 //---------------------------------------------------------------------------
 
+
+
+void __fastcall TForm1::Start1Click(TObject *Sender)
+{
+	Button1Click(Sender);
+	PopupMenu1->Items->Items[1]->Caption = "changed";
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::Stop1Click(TObject *Sender)
+{
+	 Button1Click(Sender);
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::Reset1Click(TObject *Sender)
+{
+	 Button3Click(Sender);
+}
+//---------------------------------------------------------------------------
 

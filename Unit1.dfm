@@ -181,27 +181,37 @@ object Form1: TForm1
       OnClick = SetDefaultClick
     end
     object N1: TMenuItem
+      Caption = #23653#27508
+      object a1: TMenuItem
+        Caption = 'a'
+      end
+      object b1: TMenuItem
+        Caption = 'b'
+      end
+      object c1: TMenuItem
+        Caption = 'c'
+      end
+      object d1: TMenuItem
+        Caption = 'd'
+      end
+      object e1: TMenuItem
+        Caption = 'e'
+      end
+    end
+    object N2: TMenuItem
       Caption = '-'
     end
-    object Set1: TMenuItem
-      Caption = '3'#20998
-      OnClick = Set1Click
+    object Start1: TMenuItem
+      Caption = #12473#12479#12540#12488
+      OnClick = Start1Click
     end
-    object Set2: TMenuItem
-      Caption = '3'#20998
-      OnClick = Set2Click
+    object Stop1: TMenuItem
+      Caption = #12473#12488#12483#12503
+      OnClick = Stop1Click
     end
-    object Set3: TMenuItem
-      Caption = '3'#20998
-      OnClick = Set3Click
-    end
-    object Set4: TMenuItem
-      Caption = '3'#20998
-      OnClick = Set4Click
-    end
-    object Set5: TMenuItem
-      Caption = '3'#20998
-      OnClick = Set5Click
+    object Reset1: TMenuItem
+      Caption = #12522#12475#12483#12488
+      OnClick = Reset1Click
     end
   end
   object ActionList1: TActionList

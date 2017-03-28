@@ -33,14 +33,18 @@ __published:	// IDE で管理されるコンポーネント
 	TPopupMenu *PopupMenu1;
 	TMenuItem *SetDefault;
 	TMenuItem *N1;
-	TMenuItem *Set1;
-	TMenuItem *Set2;
-	TMenuItem *Set3;
-	TMenuItem *Set4;
-	TMenuItem *Set5;
 	TActionList *ActionList1;
 	TAction *ActionStartStop;
 	TAction *ActionReset;
+	TMenuItem *N2;
+	TMenuItem *Start1;
+	TMenuItem *Stop1;
+	TMenuItem *Reset1;
+	TMenuItem *a1;
+	TMenuItem *b1;
+	TMenuItem *c1;
+	TMenuItem *d1;
+	TMenuItem *e1;
 	void __fastcall Button1Click(TObject *Sender);
 	void __fastcall Timer1Timer(TObject *Sender);
 	void __fastcall Button3Click(TObject *Sender);
@@ -57,6 +61,9 @@ __published:	// IDE で管理されるコンポーネント
 	void __fastcall ActionResetExecute(TObject *Sender);
 	void __fastcall Edit1Change(TObject *Sender);
 	void __fastcall Edit2Change(TObject *Sender);
+	void __fastcall Start1Click(TObject *Sender);
+	void __fastcall Stop1Click(TObject *Sender);
+	void __fastcall Reset1Click(TObject *Sender);
 
 
 
