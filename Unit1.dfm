@@ -184,18 +184,23 @@ object Form1: TForm1
       Caption = #23653#27508
       object a1: TMenuItem
         Caption = 'a'
+        OnClick = a1Click
       end
       object b1: TMenuItem
         Caption = 'b'
+        OnClick = b1Click
       end
       object c1: TMenuItem
         Caption = 'c'
+        OnClick = c1Click
       end
       object d1: TMenuItem
         Caption = 'd'
+        OnClick = d1Click
       end
       object e1: TMenuItem
         Caption = 'e'
+        OnClick = e1Click
       end
     end
     object N2: TMenuItem

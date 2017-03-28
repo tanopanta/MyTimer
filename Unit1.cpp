@@ -219,36 +219,6 @@ void __fastcall TForm1::SetDefaultClick(TObject *Sender)
 //---------------------------------------------------------------------------
 
 
-void __fastcall TForm1::Set1Click(TObject *Sender)
-{
-	SetClick(0);
-}
-//---------------------------------------------------------------------------
-
-void __fastcall TForm1::Set2Click(TObject *Sender)
-{
-	SetClick(1);
-}
-//---------------------------------------------------------------------------
-
-void __fastcall TForm1::Set3Click(TObject *Sender)
-{
-	SetClick(2);
-}
-//---------------------------------------------------------------------------
-
-void __fastcall TForm1::Set4Click(TObject *Sender)
-{
-	SetClick(3);
-}
-//---------------------------------------------------------------------------
-
-void __fastcall TForm1::Set5Click(TObject *Sender)
-{
-	SetClick(4);
-}
-//---------------------------------------------------------------------------
-
 void __fastcall TForm1::SetClick(int num)
 {
 	Edit1->Text = historyTime[num] / 60;
@@ -326,6 +296,36 @@ void __fastcall TForm1::Stop1Click(TObject *Sender)
 void __fastcall TForm1::Reset1Click(TObject *Sender)
 {
 	 Button3Click(Sender);
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::a1Click(TObject *Sender)
+{
+	 SetClick(0);
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::b1Click(TObject *Sender)
+{
+	 SetClick(1);
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::c1Click(TObject *Sender)
+{
+	 SetClick(2);
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::d1Click(TObject *Sender)
+{
+	 SetClick(3);
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::e1Click(TObject *Sender)
+{
+	SetClick(4);
 }
 //---------------------------------------------------------------------------
 

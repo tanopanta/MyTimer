@@ -51,11 +51,6 @@ __published:	// IDE で管理されるコンポーネント
 	void __fastcall Button2Click(TObject *Sender);
 	void __fastcall FormShow(TObject *Sender);
 	void __fastcall SetDefaultClick(TObject *Sender);
-	void __fastcall Set1Click(TObject *Sender);
-	void __fastcall Set2Click(TObject *Sender);
-	void __fastcall Set3Click(TObject *Sender);
-	void __fastcall Set4Click(TObject *Sender);
-	void __fastcall Set5Click(TObject *Sender);
 	void __fastcall FormClose(TObject *Sender, TCloseAction &Action);
 	void __fastcall ActionStartStopExecute(TObject *Sender);
 	void __fastcall ActionResetExecute(TObject *Sender);
@@ -64,6 +59,11 @@ __published:	// IDE で管理されるコンポーネント
 	void __fastcall Start1Click(TObject *Sender);
 	void __fastcall Stop1Click(TObject *Sender);
 	void __fastcall Reset1Click(TObject *Sender);
+	void __fastcall a1Click(TObject *Sender);
+	void __fastcall b1Click(TObject *Sender);
+	void __fastcall c1Click(TObject *Sender);
+	void __fastcall d1Click(TObject *Sender);
+	void __fastcall e1Click(TObject *Sender);
 
 
 
