@@ -37,7 +37,7 @@ void __fastcall TForm1::Button1Click(TObject *Sender)
 		Timer1->Enabled = false;
 		endTime -= difftime(time(NULL),startTime);
 	}else{
-		
+
 		if(!isTochu){
 			if(Edit1->Text == EmptyStr || Edit2->Text == EmptyStr){
 				Edit1->Text = "0";
@@ -289,6 +289,9 @@ void __fastcall TForm1::Start1Click(TObject *Sender)
 
 void __fastcall TForm1::Stop1Click(TObject *Sender)
 {
+	 if(!isStart){
+		return;
+	 }
 	 Button1Click(Sender);
 }
 //---------------------------------------------------------------------------
