@@ -57,7 +57,7 @@ object Form2: TForm2
   end
   object Label4: TLabel
     Left = 239
-    Top = 80
+    Top = 96
     Width = 163
     Height = 17
     Caption = '(windows10'#12398#12415#12289#36890#30693#38899#12354#12426')'
@@ -83,7 +83,7 @@ object Form2: TForm2
   end
   object Label6: TLabel
     Left = 263
-    Top = 57
+    Top = 73
     Width = 123
     Height = 17
     Caption = #12450#12463#12471#12519#12531#12475#12531#12479#12540#12391#36890#30693
@@ -96,7 +96,7 @@ object Form2: TForm2
   end
   object Label7: TLabel
     Left = 263
-    Top = 102
+    Top = 118
     Width = 98
     Height = 17
     Caption = #24120#12395#26368#21069#38754#12395#34920#31034
@@ -113,6 +113,19 @@ object Form2: TForm2
     Width = 74
     Height = 17
     Caption = #36890#30693#12513#12483#12475#12540#12472
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = 16056319
+    Font.Height = -13
+    Font.Name = 'Yu Gothic UI'
+    Font.Style = []
+    ParentFont = False
+  end
+  object Label9: TLabel
+    Left = 263
+    Top = 47
+    Width = 147
+    Height = 17
+    Caption = #12479#12452#12510#12540#23455#34892#26178#12395#32066#20102#12391#30906#35469
     Font.Charset = DEFAULT_CHARSET
     Font.Color = 16056319
     Font.Height = -13
@@ -191,7 +204,7 @@ object Form2: TForm2
   end
   object CheckBox3: TCheckBox
     Left = 239
-    Top = 57
+    Top = 73
     Width = 18
     Height = 17
     Color = 4081734
@@ -206,7 +219,7 @@ object Form2: TForm2
   end
   object CheckBox4: TCheckBox
     Left = 239
-    Top = 103
+    Top = 119
     Width = 17
     Height = 17
     Font.Charset = DEFAULT_CHARSET
@@ -232,5 +245,18 @@ object Form2: TForm2
     ParentFont = False
     TabOrder = 7
     Text = #26178#38291#12391#12377
+  end
+  object CheckBox2: TCheckBox
+    Left = 239
+    Top = 48
+    Width = 17
+    Height = 17
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = 4966540
+    Font.Height = -13
+    Font.Name = 'Yu Gothic UI'
+    Font.Style = []
+    ParentFont = False
+    TabOrder = 8
   end
 end

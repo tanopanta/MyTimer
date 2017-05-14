@@ -64,6 +64,7 @@ __published:	// IDE で管理されるコンポーネント
 	void __fastcall c1Click(TObject *Sender);
 	void __fastcall d1Click(TObject *Sender);
 	void __fastcall e1Click(TObject *Sender);
+	void __fastcall FormCloseQuery(TObject *Sender, bool &CanClose);
 
 
 

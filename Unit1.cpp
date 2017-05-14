@@ -181,7 +181,7 @@ void __fastcall TForm1::FormShow(TObject *Sender)
 		Form2->Edit2->Text = Edit2->Text;
 		Form2->EditNotifyMessage->Text = ini->ReadString("Form","NotifyMessage","時間です");
 		Form2->CheckBox1->Checked = ini->ReadBool("Form","NotificationSound",True);
-		//Form2->CheckBox2->Checked = ini->ReadBool("Form","DoubleBuffering",False);
+		Form2->CheckBox2->Checked = ini->ReadBool("Form","EndDialogue",False);
 		Form2->CheckBox3->Checked = ini->ReadBool("Form","UseActionCenter",False);
 		Form2->CheckBox4->Checked = ini->ReadBool("Form","DisplayTopMost",False);
 
@@ -205,7 +205,6 @@ void __fastcall TForm1::FormShow(TObject *Sender)
 	PopupMenu1->Items->Items[0]->Caption = str;
 
 	Label1->Caption = AnsiString().sprintf("%02d:%02d:%02d",StrToInt(Edit1->Text) / 60,StrToInt(Edit1->Text) % 60 + StrToInt(Edit2->Text) / 60,StrToInt(Edit2->Text) % 60);
-	//Form1->DoubleBuffered = Form2->CheckBox2->Checked;
 }
 //---------------------------------------------------------------------------
 
@@ -283,7 +282,6 @@ void __fastcall TForm1::EditChange()
 void __fastcall TForm1::Start1Click(TObject *Sender)
 {
 	Button1Click(Sender);
-	PopupMenu1->Items->Items[1]->Caption = "changed";
 }
 //---------------------------------------------------------------------------
 
@@ -329,6 +327,17 @@ void __fastcall TForm1::d1Click(TObject *Sender)
 void __fastcall TForm1::e1Click(TObject *Sender)
 {
 	SetClick(4);
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::FormCloseQuery(TObject *Sender, bool &CanClose)
+{
+	if(isStart && Form2->CheckBox2->Checked) {
+		int res = MessageDlgPos("タイマーを実行中ですが、終了しますか？",mtConfirmation, mbOKCancel ,0,-1,-1);
+		if(res == mrCancel){
+			CanClose = false;
+		}
+	}
 }
 //---------------------------------------------------------------------------
 

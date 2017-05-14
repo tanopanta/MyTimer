@@ -33,7 +33,7 @@ void __fastcall TForm2::Button1Click(TObject *Sender)
 		ini->WriteInteger("Form", "DefaultSecond", StrToInt(Edit2->Text));
 		ini->WriteString("Form","NotifyMessage",EditNotifyMessage->Text);
 		ini->WriteBool("Form","NotificationSound",CheckBox1->Checked);
-		//ini->WriteBool("Form","DoubleBuffering",CheckBox2->Checked);
+		ini->WriteBool("Form","EndDialogue",CheckBox2->Checked);
 		ini->WriteBool("Form","UseActionCenter",CheckBox3->Checked);
 		ini->WriteBool("Form","DisplayTopMost",CheckBox4->Checked);
 	}__finally{
@@ -41,7 +41,6 @@ void __fastcall TForm2::Button1Click(TObject *Sender)
 	}
 
 
-	//Form1->DoubleBuffered = CheckBox2->Checked;
 	if(CheckBox4->Checked){
 		SetWindowPos(Form1->Handle, HWND_TOPMOST, 0, 0, 0, 0,SWP_NOMOVE | SWP_NOSIZE | SWP_NOREDRAW);
 	}else{
@@ -77,7 +76,7 @@ void __fastcall TForm2::LoadSettings()
 		Edit2->Text = ini->ReadInteger("Form", "DefaultSecond", 0);
 		EditNotifyMessage->Text = ini->ReadString("Form","NotifyMessage","ŽžŠÔ‚Å‚·");
 		CheckBox1->Checked = ini->ReadBool("Form","NotificationSound",True);
-		//CheckBox2->Checked = ini->ReadBool("Form","DoubleBuffering",False);
+		CheckBox2->Checked = ini->ReadBool("Form","EndDialogue",False);
 		CheckBox3->Checked = ini->ReadBool("Form","UseActionCenter",False);
 		CheckBox4->Checked = ini->ReadBool("Form","DisplayTopMost",False);
 	}__finally{

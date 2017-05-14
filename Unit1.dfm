@@ -15,6 +15,7 @@ object Form1: TForm1
   OldCreateOrder = False
   PopupMenu = PopupMenu1
   OnClose = FormClose
+  OnCloseQuery = FormCloseQuery
   OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 17
