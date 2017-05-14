@@ -281,6 +281,9 @@ void __fastcall TForm1::EditChange()
 
 void __fastcall TForm1::Start1Click(TObject *Sender)
 {
+    if(isStart){
+		return;
+	 }
 	Button1Click(Sender);
 }
 //---------------------------------------------------------------------------
