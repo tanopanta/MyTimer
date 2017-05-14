@@ -64,6 +64,7 @@ object Form1: TForm1
     Width = 85
     Height = 25
     Caption = 'START'
+    Default = True
     Font.Charset = DEFAULT_CHARSET
     Font.Color = 2962483
     Font.Height = -16

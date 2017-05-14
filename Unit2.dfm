@@ -175,6 +175,7 @@ object Form2: TForm2
     Width = 75
     Height = 25
     Caption = 'OK'
+    Default = True
     TabOrder = 2
     OnClick = Button1Click
   end
