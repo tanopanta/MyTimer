@@ -1,7 +1,6 @@
 object Form1: TForm1
   Left = 0
   Top = 0
-  BorderIcons = [biSystemMenu, biMinimize]
   Caption = #12479#12452#12510#12540
   ClientHeight = 194
   ClientWidth = 304
@@ -17,6 +16,9 @@ object Form1: TForm1
   OnClose = FormClose
   OnCloseQuery = FormCloseQuery
   OnShow = FormShow
+  DesignSize = (
+    304
+    194)
   PixelsPerInch = 96
   TextHeight = 17
   object Label1: TLabel
@@ -24,6 +26,7 @@ object Form1: TForm1
     Top = 35
     Width = 256
     Height = 77
+    Anchors = [akTop]
     Caption = '00:00:00'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clCream
@@ -37,6 +40,7 @@ object Form1: TForm1
     Top = 139
     Width = 13
     Height = 17
+    Anchors = [akTop]
     Caption = #20998
     Font.Charset = ANSI_CHARSET
     Font.Color = 4966540
@@ -50,6 +54,7 @@ object Form1: TForm1
     Top = 139
     Width = 13
     Height = 17
+    Anchors = [akTop]
     Caption = #31186
     Font.Charset = ANSI_CHARSET
     Font.Color = 4966540
@@ -63,6 +68,7 @@ object Form1: TForm1
     Top = 162
     Width = 85
     Height = 25
+    Anchors = [akBottom]
     Caption = 'START'
     Default = True
     Font.Charset = DEFAULT_CHARSET
@@ -75,11 +81,12 @@ object Form1: TForm1
     OnClick = Button1Click
   end
   object Edit1: TEdit
-    Left = 57
+    Left = 55
     Top = 131
     Width = 57
     Height = 25
     Alignment = taCenter
+    Anchors = [akTop]
     Color = clCream
     Font.Charset = DEFAULT_CHARSET
     Font.Color = 2962483
@@ -101,6 +108,7 @@ object Form1: TForm1
     Width = 57
     Height = 25
     Alignment = taCenter
+    Anchors = [akTop]
     Color = clCream
     Font.Charset = DEFAULT_CHARSET
     Font.Color = 2962483
@@ -121,6 +129,7 @@ object Form1: TForm1
     Top = 162
     Width = 75
     Height = 25
+    Anchors = [akRight, akBottom]
     Caption = 'RESET'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = 2962483
@@ -132,10 +141,11 @@ object Form1: TForm1
     OnClick = Button3Click
   end
   object UpDown1: TUpDown
-    Left = 114
+    Left = 116
     Top = 131
     Width = 17
     Height = 25
+    Anchors = [akTop]
     Associate = Edit1
     Max = 10000
     TabOrder = 4
@@ -146,6 +156,7 @@ object Form1: TForm1
     Top = 131
     Width = 16
     Height = 25
+    Anchors = [akTop]
     Associate = Edit2
     Max = 59
     TabOrder = 5
@@ -155,6 +166,7 @@ object Form1: TForm1
     Top = 161
     Width = 41
     Height = 25
+    Anchors = [akLeft, akBottom]
     Caption = #35373#23450
     Font.Charset = DEFAULT_CHARSET
     Font.Color = 2962483
